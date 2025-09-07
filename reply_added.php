@@ -11,13 +11,17 @@ $lp = $_POST["lp"];
 $text = $_POST["text"];
 $data = date("Y-m-d H:i:s");
 
-// INSERT z określonymi kolumnami i AUTO_INCREMENT
+$full_text = "ODPOWIEDŹ NA WPIS UŻYTKOWNIKA: $nick_tworcy O L.P. $lp: $text";
+
 $wynik = mysqli_query($conn, "
-    INSERT INTO wpisy (nick, text, czas) VALUES ('$nick', 'ODPOWIEDŹ NA WPIS: $nick_tworcy O L.P. $lp: $text', '$data')
+    INSERT INTO wpisy (nick, text, czas) VALUES ('$nick', '$full_text', '$data')
 ");
 
 if ($wynik) {
     header("Location: index.php?strona=browse");
     exit;
+}
+else {
+    echo mysqli_error($conn);
 }
 ?>
