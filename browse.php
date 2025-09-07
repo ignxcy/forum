@@ -1,5 +1,8 @@
 <h1>Przeglądaj</h1>
 <div id="dodawanie"><a href="index.php?strona=add">Dodaj</a></div>
+<?php
+    require("add.php");
+?>
 <table border="1" cellspacing="0">
     <tr bgcolor="silver">
         <th width="50">ID</th>
